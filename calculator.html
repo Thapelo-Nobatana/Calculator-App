@@ -17,31 +17,33 @@
             <td onclick="digitBtnPressed(7)">7</td>
             <td onclick="digitBtnPressed(8)" >8</td>
             <td onclick="digitBtnPressed(9)">9</td>
-            <td  onclick="digitBtnPressed(' X ')">x</td>
+            <td  onclick="operatorBtnPressed('*')">x</td>
         </tr>
         <tr>
             <td  onclick="digitBtnPressed(4)">4</td>
             <td  onclick="digitBtnPressed(5)">5</td>
             <td  onclick="digitBtnPressed(6)">6</td>
-            <td  onclick="digitBtnPressed(' - ')">-</td>
+            <td  onclick="operatorBtnPressed('-')">-</td>
         </tr>
         <tr>
             <td  onclick="digitBtnPressed(1)">1</td>
             <td  onclick="digitBtnPressed(2)">2</td>
             <td  onclick="digitBtnPressed(3)">3</td>
-            <td  onclick="digitBtnPressed(' + ')">+</td>
+            <td  onclick="operatorBtnPressed('+')">+</td>
         </tr>
         <tr>
             <td colspan="2"  onclick="digitBtnPressed(0)">0</td>
-            <td>AC</td>
-            <td  onclick="digitBtnPressed(' / ')">/</td>
+            <td onclick="btnACPressed()">AC</td>
+            <td  onclick="operatorBtnPressed('/')">/</td>
         </tr>
         <tr>
-            <td colspan="4"  onclick="digitBtnPressed(' = ')">=</td>
+            <td colspan="4"  >=</td>
         </tr>
     </table>
     <script>
         const newLine = true;
+        let value1;
+        let currentOperator;
 
         //  Event handler for when any digit button is pressed
         const digitBtnPressed = (button) => {
@@ -59,6 +61,14 @@
         // Event handler for the AC button is pressed
         const btnACPressed = () => {
             document.getElementById("inputBox").value = 0;
+            newLine = true;
+        }
+
+        //  operator function
+
+        const operatorBtnPressed = (operator) => {
+            currentOperator = operator;
+            value1 = parseInt(document.getElementById("inputBox").value);
             newLine = true;
         }
     </script>
